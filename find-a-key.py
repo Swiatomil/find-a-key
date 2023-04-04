@@ -3,12 +3,14 @@ class game:
     def __init__(self,row=9,column=9):
         self.map = [['0' for a in range(row)]for b in range(column)]
         self.x=randint(0,row-1)
-        self.map[randint(0,row-1)][randint(0,column-1)]="5"
+        self.y=randint(0,column-1)
+        self.map[self.x][self.y]="5"
         self.keyx=randint(0,row-1)
         self.keyy=randint(0,column-1)
         while self.map[self.keyx][self.keyy]=="5":
             self.keyx=randint(0,row-1)
             self.keyy=randint(0,column-1)
+
 
     def __repr__(self) -> str:
         b=""
@@ -18,9 +20,51 @@ class game:
             b+="\n"
          
         return b
-    def move(input):
+    def move(self,inputt):
+        if inputt=="w":
+            if self.x!=0:
+                self.map[self.x][self.y]="1"
+                self.x-=1
+                self.map[self.x][self.y]="5"
+                print(self)
+            else :
+                print("wall")
+                print(self)
+        if inputt=="s":
+            if self.x!= len(self.map)-1:
+                self.map[self.x][self.y]="1"
+                self.x+=1
+                self.map[self.x][self.y]="5"
+                print(self)
+            else :
+                print("wall")
+                print(self)               
+        if inputt=="a":
+            if self.y!=0:
+                self.map[self.x][self.y]="1"
+                self.y-=1
+                self.map[self.x][self.y]="5"
+                print(self)
+            else :
+                print("wall")
+                print(self)    
+        if inputt=="d":
+            if self.y!=len(self.map[0])-1:
+                self.map[self.x][self.y]="1"
+                self.y+=1
+                self.map[self.x][self.y]="5"
+                print(self)
+            else :
+                print("wall")
+                print(self)  
+        if self.x==self.keyx and self.y==self.keyy:
+            print('you win!') 
+            return 0                     
+        
 
-                   
-
-a = game(9,9)
-print(a)
+b=game()               
+print(b)
+c="1"
+while(c!=0):
+    
+    c = b.move(input())
