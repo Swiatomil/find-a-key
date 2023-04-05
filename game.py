@@ -9,4 +9,4 @@ while(a!='0'):
     a=read_key()
     game.move(a)
     game.give_clue()
-    time.sleep(0.1)
+    time.sleep(0.2)
