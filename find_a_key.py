@@ -1,5 +1,5 @@
 from random import randint
-class game:
+class board:
     def __init__(self,row=9,column=9):
         self.map = [['0' for a in range(row)]for b in range(column)]
         self.x=randint(0,row-1)
@@ -71,10 +71,4 @@ class game:
             self.distance=new_distance                     
         
 
-b=game(5,5)               
-print(b)
-c="1"
-while(c!=0):
-    
-    c = b.move(input())
-    b.give_clue()
+
