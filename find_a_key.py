@@ -1,17 +1,16 @@
 from random import randint
 class board:
-    def __init__(self,row=9,column=9):
+    def __init__(self,row=10,column=10):
         self.map = [['0' for a in range(row)]for b in range(column)]
         self.x=randint(0,row-1)
         self.y=randint(0,column-1)
         self.map[self.x][self.y]="5"
         self.keyx=randint(0,row-1)
         self.keyy=randint(0,column-1)
-        self.distance = abs(self.x-self.keyx) + abs(self.y-self.keyy)
         while self.map[self.keyx][self.keyy]=="5":
             self.keyx=randint(0,row-1)
             self.keyy=randint(0,column-1)
-
+        self.distance = abs(self.x - self.keyx) + abs(self.y - self.keyy)
 
     def __repr__(self) -> str:
         b=""
